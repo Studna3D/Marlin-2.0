@@ -875,7 +875,7 @@
 
 /**
  * Touch-MI Probe by hotends.fr
- *
+
  * This probe is deployed and activated by moving the X-axis to a magnet at the edge of the bed.
  * By default, the magnet is assumed to be on the left and activated by a home. If the magnet is
  * on the right, enable and set TOUCH_MI_DEPLOY_XPOS to the deploy position.

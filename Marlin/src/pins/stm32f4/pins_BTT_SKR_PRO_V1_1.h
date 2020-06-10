@@ -37,7 +37,7 @@
 // Servos
 //
 #define SERVO0_PIN                          PA1
-#define PS_ON_PIN                           PD5
+#define PS_ON_PIN                           PF13
 
 //
 // Limit Switches
