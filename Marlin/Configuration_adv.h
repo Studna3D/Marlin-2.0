@@ -503,12 +503,12 @@
 /**
  * M355 Case Light on-off / brightness
  */
-#define CASE_LIGHT_ENABLE
+//#define CASE_LIGHT_ENABLE
 #if ENABLED(CASE_LIGHT_ENABLE)
-  #define CASE_LIGHT_PIN PF7                  // Override the default pin if needed
-  #define INVERT_CASE_LIGHT true             // Set true if Case Light is ON when pin is LOW
+  //#define CASE_LIGHT_PIN 4                  // Override the default pin if needed
+  #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
   #define CASE_LIGHT_DEFAULT_ON true          // Set default power-up state on
-  #define CASE_LIGHT_DEFAULT_BRIGHTNESS 255   // Set default power-up brightness (0-255, requires PWM pin)
+  #define CASE_LIGHT_DEFAULT_BRIGHTNESS 105   // Set default power-up brightness (0-255, requires PWM pin)
   //#define CASE_LIGHT_MAX_PWM 128            // Limit pwm
   //#define CASE_LIGHT_MENU                   // Add Case Light options to the LCD menu
   //#define CASE_LIGHT_NO_BRIGHTNESS          // Disable brightness control. Enable for non-PWM lighting.
@@ -2408,7 +2408,7 @@
    * The default SW SPI pins are defined the respective pins files,
    * but you can override or define them here.
    */
-  #define TMC_USE_SW_SPI
+  //#define TMC_USE_SW_SPI
   //#define TMC_SW_MOSI       -1
   //#define TMC_SW_MISO       -1
   //#define TMC_SW_SCK        -1
@@ -2474,7 +2474,7 @@
    * Define you own with
    * { <off_time[1..15]>, <hysteresis_end[-3..12]>, hysteresis_start[1..8] }
    */
-  #define CHOPPER_TIMING CHOPPER_DEFAULT_24V
+  #define CHOPPER_TIMING CHOPPER_DEFAULT_12V
 
   /**
    * Monitor Trinamic drivers
@@ -2502,7 +2502,7 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  #define HYBRID_THRESHOLD
+  //#define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
@@ -2578,7 +2578,7 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-  #define SQUARE_WAVE_STEPPING
+  //#define SQUARE_WAVE_STEPPING
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.
@@ -3443,8 +3443,8 @@
 /**
  * WiFi Support (Espressif ESP32 WiFi)
  */
-#define WIFISUPPORT         // Marlin embedded WiFi managenent
-#define ESP3D_WIFISUPPORT   // ESP3D Library WiFi management (https://github.com/luc-github/ESP3DLib)
+//#define WIFISUPPORT         // Marlin embedded WiFi managenent
+//#define ESP3D_WIFISUPPORT   // ESP3D Library WiFi management (https://github.com/luc-github/ESP3DLib)
 
 #if EITHER(WIFISUPPORT, ESP3D_WIFISUPPORT)
   //#define WEBSUPPORT          // Start a webserver (which may include auto-discovery)
