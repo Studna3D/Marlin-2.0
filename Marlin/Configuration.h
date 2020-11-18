@@ -320,7 +320,7 @@
  * Specify whether the power supply is active HIGH or active LOW.
  */
 #define PSU_CONTROL
-//#define PSU_NAME "Power Supply"
+#define PSU_NAME "Power Supply"
 
 #if ENABLED(PSU_CONTROL)
   #define PSU_ACTIVE_HIGH true     // Set 'false' for ATX, 'true' for X-Box
@@ -717,7 +717,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 200, 200, 4000, 96 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 200, 200, 4000, 190 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1540,8 +1540,8 @@
   #define NOZZLE_CLEAN_TRIANGLES  3
 
   // Specify positions as { X, Y, Z }
-  #define NOZZLE_CLEAN_START_POINT {  330, 2 }
-  #define NOZZLE_CLEAN_END_POINT   { 370, 2 }
+  #define NOZZLE_CLEAN_START_POINT { 300, 2, (Z_MIN_POS + 1) }
+  #define NOZZLE_CLEAN_END_POINT   { 330, 2, (Z_MIN_POS + 1) }
 
   // Circular pattern radius
   #define NOZZLE_CLEAN_CIRCLE_RADIUS 6.5
@@ -1554,7 +1554,7 @@
   #define NOZZLE_CLEAN_GOBACK
 
   // Enable for a purge/clean station that's always at the gantry height (thus no Z move)
-  //#define NOZZLE_CLEAN_NO_Z
+  #define NOZZLE_CLEAN_NO_Z
 #endif
 
 /**
