@@ -36,11 +36,11 @@ TERN_(EDITABLE_SERVO_ANGLES, uint16_t servo_angles[NUM_SERVOS][2]);
 
 void servo_init() {
   #if NUM_SERVOS >= 1 && HAS_SERVO_0
-    servo[0].attach(SERVO0_PIN);
+    servo[0].attach(SERVO0_PIN, MIN_PULSE_WIDTH1, MAX_PULSE_WIDTH1);
     servo[0].detach(); // Just set up the pin. We don't have a position yet. Don't move to a random position.
   #endif
   #if NUM_SERVOS >= 2 && HAS_SERVO_1
-    servo[1].attach(SERVO1_PIN);
+    servo[1].attach(SERVO1_PIN, MIN_PULSE_WIDTH2, MAX_PULSE_WIDTH2);
     servo[1].detach();
   #endif
   #if NUM_SERVOS >= 3 && HAS_SERVO_2

@@ -188,7 +188,7 @@
 // A dual extruder that uses a single stepper motor
 #define SWITCHING_EXTRUDER
 #if ENABLED(SWITCHING_EXTRUDER)
-  #define SWITCHING_EXTRUDER_SERVO_NR 0
+  #define SWITCHING_EXTRUDER_SERVO_NR 1
   #define SWITCHING_EXTRUDER_SERVO_ANGLES { 0, 180 } // Angles for E0, E1[, E2, E3]
   #if EXTRUDERS > 3
     #define SWITCHING_EXTRUDER_E23_SERVO_NR 1
@@ -198,7 +198,7 @@
 // A dual-nozzle that uses a servomotor to raise/lower one (or both) of the nozzles
 #define SWITCHING_NOZZLE
 #if ENABLED(SWITCHING_NOZZLE)
-  #define SWITCHING_NOZZLE_SERVO_NR 0
+  #define SWITCHING_NOZZLE_SERVO_NR 1
   //#define SWITCHING_NOZZLE_E1_SERVO_NR 1          // If two servos are used, the index of the second
   #define SWITCHING_NOZZLE_SERVO_ANGLES { 0, 180 }   // Angles for E0, E1 (single servo) or lowered/raised (dual servo)
 #endif
@@ -313,8 +313,8 @@
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
-#define HOTEND_OFFSET_X { 0.0, 1.20 } // (mm) relative X-offset for each nozzle
-#define HOTEND_OFFSET_Y { 0.0, 16.50 }  // (mm) relative Y-offset for each nozzle
+#define HOTEND_OFFSET_X { 0.0, 20.0 } // (mm) relative X-offset for each nozzle
+//#define HOTEND_OFFSET_Y { 0.0, 16.50 }  // (mm) relative Y-offset for each nozzle
 #define HOTEND_OFFSET_Z { 0.0, -0.05 }  // (mm) relative Z-offset for each nozzle
 
 // @section machine
@@ -592,7 +592,7 @@
  */
 
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
-//#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
 #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
 
 //===========================================================================
@@ -861,7 +861,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#define Z_MIN_PROBE_PIN PA2 // Pin 32 is the RAMPS default
+//#define Z_MIN_PROBE_PIN PA2 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -1242,7 +1242,7 @@
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
  */
-//#define RESTORE_LEVELING_AFTER_G28
+#define RESTORE_LEVELING_AFTER_G28
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.
@@ -2406,12 +2406,12 @@
  * Set this manually if there are extra servos needing manual control.
  * Set to 0 to turn off servo support.
  */
-#define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
+#define NUM_SERVOS 2 // Servo index starts with 0 for M280 command
 
 // (ms) Delay  before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
 // If the servo can't reach the requested position, increase it.
-#define SERVO_DELAY { 300 }
+#define SERVO_DELAY { 300,300 }
 
 // Only power servos during movement, otherwise leave off to prevent jitter
 //#define DEACTIVATE_SERVOS_AFTER_MOVE
