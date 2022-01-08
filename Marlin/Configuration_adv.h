@@ -1603,7 +1603,7 @@
  *
  * Warning: Does not respect endstops!
  */
-//#define BABYSTEPPING
+#define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
   //#define INTEGRATED_BABYSTEPPING         // EXPERIMENTAL integration of babystepping into the Stepper ISR
   //#define BABYSTEP_WITHOUT_HOMING
@@ -3159,7 +3159,7 @@
 //#define NO_WORKSPACE_OFFSETS
 
 // Extra options for the M114 "Current Position" report
-//#define M114_DETAIL         // Use 'M114` for details to check planner calculations
+#define M114_DETAIL         // Use 'M114` for details to check planner calculations
 //#define M114_REALTIME       // Real current position based on forward kinematics
 //#define M114_LEGACY         // M114 used to synchronize on every call. Enable if needed.
 

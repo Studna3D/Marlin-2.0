@@ -592,7 +592,7 @@
  */
 
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
-#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+//#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
 #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
 
 //===========================================================================
@@ -986,7 +986,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -39, -20.9, 0.1 }
+#define NOZZLE_TO_PROBE_OFFSET { -39, -20.9, -1.75 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1122,15 +1122,15 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 390
-#define Y_BED_SIZE 290
+#define X_BED_SIZE 300
+#define Y_BED_SIZE 300
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
-#define Y_MIN_POS 0
+#define X_MIN_POS -12
+#define Y_MIN_POS -20
 #define Z_MIN_POS 0
-#define X_MAX_POS 400
-#define Y_MAX_POS 325
+#define X_MAX_POS 350
+#define Y_MAX_POS 350
 #define Z_MAX_POS 280
 
 /**
@@ -1147,7 +1147,7 @@
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
   #define MIN_SOFTWARE_ENDSTOP_X
   #define MIN_SOFTWARE_ENDSTOP_Y
-  //#define MIN_SOFTWARE_ENDSTOP_Z
+  #define MIN_SOFTWARE_ENDSTOP_Z
 #endif
 
 // Max software endstops constrain movement within maximum coordinate bounds
@@ -1527,9 +1527,9 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
-  //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
-  //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
+  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MIN_POS + 10), 20 }
+  #define NOZZLE_PARK_X_ONLY          // X move only is required to park
+  #define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE    5   // (mm/s) Z axis feedrate (not used for delta printers)
