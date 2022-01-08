@@ -32,7 +32,9 @@
 
 HAL_SERVO_LIB servo[NUM_SERVOS];
 
-TERN_(EDITABLE_SERVO_ANGLES, uint16_t servo_angles[NUM_SERVOS][2]);
+#if ENABLED(EDITABLE_SERVO_ANGLES)
+  uint16_t servo_angles[NUM_SERVOS][2];
+#endif
 
 void servo_init() {
   #if NUM_SERVOS >= 1 && HAS_SERVO_0
@@ -45,11 +47,11 @@ void servo_init() {
   #endif
   #if NUM_SERVOS >= 3 && HAS_SERVO_2
     servo[2].attach(SERVO2_PIN);
-    servo[2].detach();
+    DETACH_SERVO(2);
   #endif
   #if NUM_SERVOS >= 4 && HAS_SERVO_3
     servo[3].attach(SERVO3_PIN);
-    servo[3].detach();
+    DETACH_SERVO(3);
   #endif
 }
 
